@@ -1,0 +1,178 @@
+.app-shell {
+  /* Overall page background and gradient split for the sidebar and main area. */
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top, rgba(80, 115, 255, 0.18), transparent 35%),
+    linear-gradient(180deg, #09111f 0%, #111827 44%, #f5f7fb 44%, #f5f7fb 100%);
+}
+
+.whole-page {
+  /* Main content shifts right so it does not sit under the fixed sidebar. */
+  margin-left: 25%;
+  min-height: 100svh;
+  padding: 40px 32px 48px;
+  box-sizing: border-box;
+}
+
+.whole-page h1 {
+  /* Keep the page title readable on the dark top section. */
+  color: #f8fafc;
+  text-align: left;
+  margin-top: 0;
+}
+
+.intro-text {
+  /* Small helper text to explain the search area. */
+  color: #cbd5e1;
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  /* Search bar styling keeps the input visible and easy to use. */
+  width: min(100%, 420px);
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.8);
+  color: #f8fafc;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 24px;
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+.coin-list {
+  /* Stack coins vertically with spacing between rows. */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.loading-card {
+  /* Simple loading state so the preview never appears blank. */
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #0f172a;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+.main-list {
+  /* Each coin becomes a card with the icon, name, and price. */
+  padding: 0;
+  border-radius: 18px;
+}
+
+.coin-link {
+  /* Entire card is a link so the row is easy to click. */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #0f172a;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.coin-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.2);
+}
+
+.coin-link:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.coin-name {
+  min-width: 0;
+}
+
+.coin-price {
+  white-space: nowrap;
+}
+
+.icons {
+  /* Keep coin logos compact so the list stays readable. */
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.sidenav {
+  /* Fixed sidebar stays visible while the user scrolls the coin list. */
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #232323;
+  padding: 15px 10px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.sidenav h1,
+.sidenav h2,
+.sidenav a {
+  color: #f8fafc;
+}
+
+.crypto-news {
+  /* News list takes the full sidebar width. */
+  width: 100%;
+}
+
+.crypto-news ul {
+  /* Articles are stacked in a simple vertical list. */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.news-item {
+  /* Each news article gets a soft card background for contrast. */
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.news-item a {
+  display: block;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .sidenav {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 240px;
+  }
+
+  .whole-page {
+    margin-left: 0;
+    padding: 24px 16px 40px;
+  }
+}
